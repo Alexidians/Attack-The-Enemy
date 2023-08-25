@@ -1,0 +1,58 @@
+<script>
+var entitys = 10
+setInterval(move, 1000, "1")
+setInterval(move, 1000, "2")
+setInterval(move, 1000, "3")
+setInterval(move, 1000, "4")
+setInterval(move, 1000, "5")
+setInterval(move, 1000, "6")
+setInterval(move, 1000, "7")
+setInterval(move, 1000, "8")
+setInterval(move, 1000, "9")
+setInterval(move, 1000, "10")
+function move(id) {
+ var elem = document.getElementById(id)
+ var usePlus = generateBoolean()
+ if(generateBoolean()) {
+  if(usePlus) {
+   elem.top = elem.top + 10
+  }
+  else {
+   elem.top = elem.top - 10
+  }
+ }
+ else {
+  if(usePlus) {
+   elem.left = elem.left - 10
+  }
+  else {
+   elem.left = elem.left - 10
+  }
+ }
+}
+
+function generateBoolean() {
+ return Math.random() < 0.5;
+}
+
+function RemoveElement(id) {
+ document.getElementById(id).remove()
+ entitys = entitys - 1
+ if(entitys == 0) {
+  alert("Level 1 Complete")
+  localStorage.setItem("AttackTheEnemyLevel", "2")
+  location.replace("https://alexidians.github.io/Attack-The-Enemy/app/files/levels/2.html")
+ }
+}
+</script>
+<button onclick="RemoveElement('1')" id="1">Zombie</button>
+<button onclick="RemoveElement('2')" id="2">Zombie</button>
+<button onclick="RemoveElement('3')" id="3">Zombie</button>
+<button onclick="RemoveElement('4')" id="4">Zombie</button>
+<button onclick="RemoveElement('5')" id="5">Zombie</button>
+<button onclick="RemoveElement('6')" id="6">Zombie</button>
+<button onclick="RemoveElement('7')" id="7">Zombie</button>
+<button onclick="RemoveElement('8')" id="8">Zombie</button>
+<button onclick="RemoveElement('9')" id="9">Zombie</button>
+<button onclick="RemoveElement('10')" id="10">Zombie</button>
+<p>Defeat All The Zombies to win</p>
