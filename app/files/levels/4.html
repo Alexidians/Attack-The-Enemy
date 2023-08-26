@@ -1,0 +1,41 @@
+<div id="Editor">
+ <p>Now Editing Welcome to Roblox Building Code</p>
+ <p><input type="url" id="imageUrlInput"> <button onclick="create()">Create</button></p>
+ <p>Preview:</p>
+ <img id="ImagePreview">
+ <script>
+  setInterval(updateBlockAndPreview, 0)
+  function updateBlockAndPreview() {
+   document.getElementById("ImagePreview").src = document.getElementById("imageUrlInput").value
+   document.getElementById("block").src = document.getElementById("imageUrlInput").value
+  }
+
+  function create() {
+   setTimeout(finds, 10000)
+   document.getElementById("Editor").style.display = "none"
+   document.getElementById("deleteBlock").style.display = "block"
+  }
+ </script>
+</div>
+<div id="deleteBlock" style="display: none;">
+ <p>Now quickly delete The Block before somebody notices it</p>
+ <button onclick="removeBlock()"><img id="block" width="100" height="100"></button>
+ <script>
+  function removeBlock() {
+   document.getElementById("block").remove()
+   localStorage.setItem("AttackTheEnemyLevel", "5")
+   alert("You Win")
+   location.replace("https://alexidians.github.io/Attack-The-Enemy/app/file/levels/5.html")
+  }
+
+  function finds() {
+   alert("player 1: hey you see that dude hacked in a block")
+   alert("player 2: yeah, lets report him and get him banned")
+   alert("player 1: you are correct")
+   alert("player 2: does everybody agree?")
+   alert("everyone: Yes we agree we should report him and get him banned")
+   alert("You Failed")
+   location.replace(location.href)
+  }
+ </script>
+</div>
