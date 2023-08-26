@@ -11,7 +11,7 @@
 var blocksToDelete = 3
 var isHiding = false
 function removeElement(id) {
- blockToDelete = blocksToDelete - 1
+ blockToDelete--;
  document.getElementById(id).remove()
  if(isHiding) {
   alert("You can't delete blocks when you are hiding press ok to retry")
