@@ -6,64 +6,19 @@
  <input id="EntityIdInput" placeholder="Entity Id" type="text"></input>
  <input id="EntityHealthInput" type="number" placeholder="Entity Health">
  <button onclick="create()">Create</button>
-</div>
-<div id="CreatingScreen" style="display: none">
- <div id="creationProgress">
-  <div id="creationBar"></div>
- </div>
- <p id="creationStatus"></p>
- <style>
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-}
-
-#myBar {
-  width: 1%;
-  height: 30px;
-  background-color: #04AA6D;
-}
-</style>
-<script>
-var i = 0;
-var entityName = null
-var entityId = null
-var entityHealth = null
-function create() {
-  if (i == 0) {
-    i = 1;
-    var elem = document.getElementById("creationBar");
-    var width = 1;
-    entityName = document.getElementById("EntityNameInput").value
-    entityId = document.getElementById("EntityIdInput").value
-    entityHealth = document.getElementById("EntityHealthInput").value
-    document.getElementById("Editor").display = "none"
-    document.getElementById("CreatingScreen").display = "block"
-    var id = setInterval(frame, 1000);
-    function frame() {
-     if(width == 1) {
-      width = 30
-      elem.style.width = "%" + width
-      document.getElementById("creationStatus").innerHTML = "Finding Minecraft Files"
-     }
-     if(width == 30) {
-      width = 70
-      elem.style.width = "%" + width
-      document.getElementById("creationStatus").innerHTML = "Editing Minecraft Files"
-      document.getElementById("Entity").innerHTML = entityName
-     }
-     if(width == 70) {
-      width = 100
-      elem.style.width = "%" + width
-      document.getElementById("creationStatus").innerHTML = "Complete"
-      document.getElementById("CreatingScreen").style.display = "none"
-      document.getElementById("Battle").style.display = "block"
-      clearInterval(id)
-     }
-    }
+ <script>
+  var entityHealth
+  var entityName
+  var entityId
+  function create() {
+   entityHealth = document.getElementById("EntityHealthInput").value
+   entityName = document.getElementById("EntityNameInput").value
+   entityId = document.getElementById("EntityIdInput").value
+   document.getElementById("Editor").style.display = "none"
+   document.getElementById("Entity").innerHTML = entityName
+   document.getElementById("Battle").style.display = "block"
   }
-}
-</script>
+ </script>
 </div>
 <div id="Battle" style="display: none">
  <button id="Entity" onclick="punch()"></button>
