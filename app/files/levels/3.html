@@ -1,0 +1,41 @@
+<button onclick="wrongBlock()"><img width="100" height="100" src="https://alexidians.github.io/Attack-The-Enemy/app/files/blocks/bricks.png"></button>
+<button id="1" onclick="removeElement('1')"><img width="100" height="100" src="https://alexidians.github.io/Attack-The-Enemy/app/files/blocks/bricks.png"></button>
+<button onclick="wrongBlock()"><img width="100" height="100" src="https://alexidians.github.io/Attack-The-Enemy/app/files/blocks/bricks.png"></button>
+<button id="2" onclick="removeElement('2')"><img width="100" height="100" src="https://alexidians.github.io/Attack-The-Enemy/app/files/blocks/bricks.png"></button>
+<button onclick="wrongBlock()"><img width="100" height="100" src="https://alexidians.github.io/Attack-The-Enemy/app/files/blocks/bricks.png"></button>
+<button id="3" onclick="removeElement('3')"><img width="100" height="100" src="https://alexidians.github.io/Attack-The-Enemy/app/files/blocks/bricks.png"></button>
+<button onclick="hide()">Hide</button>
+<button onclick="launch()">Launch</button>
+<p>Launch all The Blocks to win and hide to not fall cause the glitch</p>
+<script>
+var blocksToDelete = 3
+var isHiding = false
+function removeElement(id) {
+ blockToDelete--;
+ document.getElementById(id).remove()
+ if(isHiding) {
+  alert("You can't delete blocks when you are hiding press ok to retry")
+  location.replace(location.href)
+ }
+}
+
+function launch() {
+ if(blocksToDelete == 0 && isHiding) {
+  localStorage.setItem("AttackTheEnemyLevel", "4")
+  alert("You Win")
+  location.replace("https://alexidians.github.io/Attack-The-Enemy/app/file/levels/4.html")
+ }
+ else {
+  alert("You Failed")
+  location.replace(location.href)
+ }
+}
+
+function hide() {
+ isHiding = true
+}
+
+function wrongBlock() {
+ alert("You are not supposed to delete that")
+}
+</script>
