@@ -1,0 +1,33 @@
+<div id="mobileDownloadScreen">
+ <h1>Download The Game</h1>
+ <p>For Mobile you need to download the game to play it</p>
+</div>
+<button href="app/Launcher/attack-the-enemy.html" download>Download</button>
+<iframe id="frame" width="100%" height="100%"></iframe>
+<script>
+var level = localStorage.getItem("AttackTheEnemyLevel")
+if(level == null) {
+ localStorage.setItem("AttackTheEnemyLevel", "1")
+ var level = "1"
+}
+document.getElementById("frame").src = "https://alexidians.github.io/Attack-The-Enemy/app/files/levels/" + level + ".html"
+        function isMobile() {
+         if (navigator.userAgent.match(/Android/i)
+         || navigator.userAgent.match(/webOS/i)
+         || navigator.userAgent.match(/iPhone/i)
+         || navigator.userAgent.match(/iPad/i)
+         || navigator.userAgent.match(/iPod/i)
+         || navigator.userAgent.match(/BlackBerry/i)
+         || navigator.userAgent.match(/Windows Phone/i)) {
+            return true;
+         } else {
+           return false;
+         }
+       }
+if(isMobile()) {
+ document.getElementById("frame").remove()
+}
+else {
+ document.getElementById("mobileDownloadScreen").remove()
+}
+</script>
