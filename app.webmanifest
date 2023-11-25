@@ -1,0 +1,8 @@
+{
+  "name": "Attack The Enemy",
+  "short_name": "Attack The Enemy",
+  "theme_color": "red",
+  "start_url": "https://alexidians.github.io/Attack-The-Enemy/app/files/frame.html",
+  "id": "AttackTheEnemy",
+  "display": "standalone",
+}
